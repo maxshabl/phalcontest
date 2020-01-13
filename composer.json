@@ -5,6 +5,7 @@
     },
     "require-dev": {
         "codeception/codeception": "^4.0",
-        "phalcon/zephir": "^0.10"
+        "phalcon/zephir": "^0.10",
+        "phalcon/devtools": "~4.0"
     }
 }

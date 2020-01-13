@@ -16,9 +16,12 @@ services:
       - ./:/var/www
     links:
       - mysql
+      - redis
     environment:
       DB_PORT: "3306"
       DB_HOST: "mysql"
+      REDIS_PORT: "6379"
+      REDIS_HOST: "redis"
   php-cli:
     build:
       context: ./
@@ -27,9 +30,12 @@ services:
       - ./:/var/www
     links:
       - mysql
+      - redis
     environment:
       DB_PORT: "3306"
       DB_HOST: "mysql"
+      REDIS_PORT: "6379"
+      REDIS_HOST: "redis"
     tty: true
   mysql:
     image: mysql:8.0.18
@@ -42,3 +48,7 @@ services:
       - "MYSQL_DATABASE=app"
     ports:
       - "33061:3306"
+  redis:
+      image: redis:5.0.7-alpine
+      ports:
+        - "63791:6379"
